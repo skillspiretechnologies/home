@@ -1,0 +1,592 @@
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+:root {
+  --border-line-filled: #fc7d07;
+  --border-line-empty: #f6f7fb;
+  --background-element: #808080;
+}
+
+* {
+  box-sizing: border-box;
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 200px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle input {
+    display: none;
+}
+
+.menu-toggle label {
+    display: none;
+}
+
+.menu-toggle i {
+    font-size: 24px;
+    color: #000;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu-toggle input:checked ~ .menu {
+    display: block;
+}
+
+/* Show the toggle button and icon on smaller screens */
+@media screen and (max-width: 768px) {
+    .menu-toggle label {
+        display: block;
+    }
+
+    .menu-toggle input {
+        display: block; /* Ensure the checkbox input is displayed */
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0; /* Hide the actual checkbox */
+        z-index: 1; /* Ensure the checkbox is clickable */
+    }
+    
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        background-color: #fff;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu-toggle i {
+        display: inline-block; /* Display the icon */
+    }
+
+    .menu-toggle input:checked ~ .menu {
+        display: flex; /* Show the menu when the checkbox is checked */
+    }
+}
+.navbar-toggler {
+    background-color: blue; /* Set toggle button background color */
+    border-color: blue; /* Set toggle button border color */
+}
+
+.navbar-toggler-icon {
+    color: white; /* Set toggle button icon color */
+}
+
+
+/* Banner Styles */
+.banner {
+    background-image: url('./assets/banner.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+}
+
+
+.banner h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    
+}
+.banner h1::before {
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the background color and opacity as needed */
+    backdrop-filter: blur(10px); /* Adjust the blur amount to match the blur amount of the background */
+    z-index: -1;
+}
+
+.banner p {
+    font-size: 18px;
+}
+
+/* About Section Styles */
+/* About Section Styles */
+.about-section {
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    flex-direction: column; /* Adjusted to stack content vertically on smaller screens */
+}
+
+.about-image img {
+    max-width: 80%; /* Adjusted to limit the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    margin-bottom: 20px; /* Add some space between image and content */
+}
+
+.about-content {
+    text-align: center; /* Center align content */
+}
+
+.about-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.about-content h1 {
+    font-size: 28px; /* Adjusted font size for better readability */
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    margin-bottom: 20px; /* Add some space between paragraphs */
+}
+
+
+
+
+/* Services Section Styles */
+.services-section {
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap; /* Allow services boxes to wrap on smaller screens */
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to right, #05b3e9, #0150c4);;
+    
+}
+
+.service-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service-box {
+    width: calc(32% - 20px);
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.service-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.service-info h3 {
+    margin-top: 0;
+}
+
+.service-image img {
+    width: 100%;
+    display: block;
+}
+
+.apply-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    align-self: center;
+}
+.apply-button :hover {
+    background-color: #05b3e9;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .service-box {
+        flex-direction: column;
+        width: calc(100%);
+    }
+    
+    .service-info {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .service-image {
+        width: 100%;
+    }
+}
+
+.nav-link {
+    color: #000000 !important;
+    font-weight:bold;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #0150c4 !important;
+    
+    
+}
+.steps{
+   padding-top: 50px;
+
+
+}
+#process .process-step {
+    list-style:none;display:list-item;margin:0 auto;
+}
+#process .process-step .btn:focus{outline:none;}
+#process .process-step.active button{background-color: #01579B; color:white;}
+#process #stepButtons{list-style-type:none;display:flex;justify-content:center;width:100%;position:relative;border:0;}
+#process .process-step button[disabled]{opacity:1 !important;filter: alpha(opacity=100) !important}
+#process #stepButtons:before{top:40px;bottom:0;position:absolute;content:" ";width:100%;height:1px;background-color:#ccc; z-order:0;}
+.process-step{display:table-cell;text-align:center;position:relative;}
+#process .process-step p{margin-top:4px}
+.process-step>p:nth-child(2){font-weight:bolder;}
+.process-step>p>small{font-weight:normal;display:block;}
+.btn-circle{width:80px;height:80px;text-align:center;font-size:12px;border-radius:50%}
+
+.process .inactive, .process .inactive i{color:#AAA; cursor:not-allowed;}
+
+@media screen and (max-width: 575px) {
+    
+    /* FIX STEPS*/
+    #process .process-step {display:block; text-align:left; overflow: auto; padding:15px 0;width:100%;}
+    #process .process-step button {width:50px; height:50px; padding:0;z-index:100; margin-top:10px; float:left;}
+    #process .process-step i {font-size: 2em;}
+    #process .process-step p {display:block; margin:10px 0 0 75px;}
+    #process .process-step p.status-icon {position:absolute; right:10px; top:20px;}
+    
+    .process-step:before{top:0px;bottom:0;position:absolute;content:" ";width:1px;height:100%;background-color:#ccc;z-order:0; left:25px;z-index:-1;}
+    #process #stepButtons {overflow-y:hidden;display:block;}
+    #process #stepButtons:before {display:none;}
+    
+}
+.benefiter{
+    background: linear-gradient(to right, #05b3e9, #0150c4);
+
+}
+
+.benefits-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 20px 0;
+}
+.benefit-wrapper {
+    display: inline-block;
+    animation: scrollLeft 25s linear infinite;
+}
+.benefit {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top;
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.benefit h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.benefit p {
+    font-size: 14px;
+    color: #666;
+}
+.icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(3%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.team-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.team-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.team-card {
+    flex: 1;
+    max-width: 300px;
+    width: calc(33.33% - 20px);
+    background: linear-gradient(to right, #05b3e9, #0150c4);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.team-member-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.team-member-role {
+    font-size: 14px;
+    color: #fff;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 576px) {
+    .team-cards {
+        flex-direction: column; /* Stack cards vertically for mobile */
+        align-items: center; /* Center cards horizontally */
+    }
+
+    .team-card {
+        width: 100%; /* Set card width to full width for mobile */
+        margin-bottom: 20px; /* Add some space between stacked cards */
+    }
+}
+
+
+.wrapper{
+    background-color: #fff;
+    margin: 5% auto;
+    
+    border-radius: 8px;
+  }
+  
+  .wrapper .title h1{
+    color: #000;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .contact-form{
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+  }
+  
+  .input-fields{
+    display: flex;
+    flex-direction: column;
+    margin-right: 4%;
+  }
+  
+  .input-fields,
+  .msg{
+    width: 48%;
+  }
+  
+  .input-fields .input,
+  .msg textarea{
+    
+    margin: 10px 0;
+    background: transparent;
+    border: 0px;
+    border-bottom: 2px solid #0150c4;
+    border-color:1px #007bff;
+    padding: 10px;
+    color: #0150c4;
+    width: 100%;
+  }
+  
+  .msg textarea{
+    height: 212px;
+  }
+  
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #0150c4;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #0150c4;
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: #0150c4;
+  }
+  
+  .btn {
+      background-color: #000;
+      text-align: center;
+      padding: 15px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      text-transform: uppercase;
+  }
+  .btn1{
+    background-color: #0150c4;
+    color: #fff;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+      padding: 10px;
+      border-radius: 25px;
+      cursor: pointer;
+      text-transform: uppercase;
+
+  }
+  
+  @media screen and (max-width: 768px){
+    .contact-form{
+      flex-direction: column;
+      
+    }
+    .msg textarea{
+      height: 80px;
+    }
+    .input-fields,
+    .msg{
+      width: 100%;
+    }
+  }
+
+  
+
+/* Footer Styles */
+.container1 {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  
+  .box1 {
+    width: 45%; /* Adjust according to your preference */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    background-color: #fff;
+    border-radius: 8px;
+    align-items:center;
+  }
+  
+  .box1 h2 {
+    margin-top: 0; /* Remove default margin */
+  }
+  
+  .box1 p {
+    margin-bottom: 15px; /* Add spacing between paragraphs and buttons */
+  }
+  
+  .button-container1 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    /* Center button vertically */
+    align-self: center;
+    /* Add some styles to the button */
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add button shadow */
+  }
+  
+  @media (max-width: 768px) {
+    .container1 {
+      flex-direction: column;
+    }
+  
+    .box1 {
+      width: 100%;
+    }
+  }
+  
+
